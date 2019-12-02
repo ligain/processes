@@ -1,4 +1,3 @@
-
 # Linux processes  practice
 1) `scripts/01_ps.sh`  script is a clone of command `ps ax` and produce similar output:
 ```bash
@@ -10,26 +9,22 @@ PID    TTY    STAT   TIME   COMMAND
 437    ?      S      00:02  /lib/systemd/systemd-udevd
 ...
 ```
-
-# Run  
-
-0) `vagrant`  should be installed on your system
+5) `scripts/05_nice.sh`  script show the difference between processes  run with `nice -20` and `nice +20` priority. **This script must be run with root permissions**
+Sample output:
 ```
-$ vagrant -v
-Vagrant 2.2.5
-```
-1) Clone this repository
-```bash  
-$ git clone https://github.com/ligain/lvm.git  
-``` 
-2) Go to project folder
-```bash  
-$ cd lvm/
-```  
-3) Run `Vagrantfile`
-```bash  
-$ vagrant up
-```  
+$ sudo ./scripts/05_nice.sh 
+Low priority process time results:
 
+real    0m1.912s
+user    0m1.592s
+sys 0m0.316s
+
+
+High priority process time results:
+real    0m1.508s
+user    0m1.176s
+sys 0m0.332s
+```
+Output logs for low and high priority processes run-time saves at `~/low_priority_process.log` and `~/high_priority_process.log` files respectively.
 # Project Goals 
 The code is written for educational purposes.
